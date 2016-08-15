@@ -1,0 +1,115 @@
+<fhheader title="Phleep" subtext="Overwatch/LoL Repository"></fhheader>
+<section id="example">
+    <div id="formWrapper">
+        <div class="row">
+            <div class="col-sm-6">
+                <div>
+                    <label for="platforms"></label>
+                    <select name="platforms" ng-model="data.platformSelect">
+                        <option value="pc">PC</option>
+                        <option value="xbl">XBL</option>
+                        <option value="psn">PSN</option>
+                    </select>
+                    <br>
+                    <label for="regions"></label>
+                    <select name="regions" ng-model="data.regionSelect">
+                        <option value="eu">EU</option>
+                        <option value="us">US</option>
+                        <option value="kr">KR</option>
+                        <option value="cn">CN</option>
+                    </select>
+                </div>
+                <div>
+                    <form ng-submit="getMyData()" class="input-group" style="padding-top: 10px;">
+                        <span class="glyphicon glyphicon-search search icon" ng-click="getMyData();"></span>
+                        <input type="text" ng-model="myUserInput" placeholder="Enter a Battletag, PSN ID or XBL Gamertag..." ng-submit="getMyData();">
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <label for="platforms"></label>
+                    <select name="platforms" ng-model="data.oppPlatformSelect">
+                        <option value="pc">PC</option>
+                        <option value="xbl">XBL</option>
+                        <option value="psn">PSN</option>
+                    </select>
+                    <br>
+                    <label for="regions"></label>
+                    <select name="regions" ng-model="data.oppRegionSelect">
+                        <option value="eu">EU</option>
+                        <option value="us">US</option>
+                        <option value="kr">KR</option>
+                        <option value="cn">CN</option>
+                    </select>
+                </div>
+                <div>
+                    <form ng-submit="getOppData()" class="input-group" style="padding-top: 10px; width: 100%;">
+                        <span class="glyphicon glyphicon-search search icon" ng-click="getOppData();"></span>
+                        <input type="text" ng-model="oppUserInput" placeholder="Enter a Battletag, PSN ID or XBL Gamertag..." ng-submit="getOppData();">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="comparison">
+            <div class="col-lg-4">
+                <h1>Player One Stats</h1>
+                <div class="row profile">
+                    <div class="col-sm-3">
+                        <img ng-src="{{myAvatar}}" class="img-responsive img-rounded playerIcon"></img>
+                    </div>
+                    <div class="col-sm-3">
+                        <h2>{{myUsername}}</h2>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <img ng-src="{{myRankIcon}}" class="img-rounded ranking"></img>
+                        <h3 style="text-align: -webkit-center; margin: 0px;">{{myRank}}</h3>
+                    </div>
+                    <div class="col-sm-3">
+                        <img ng-src="{{myLevelFrame}}" class="img-responsive"></img>
+                        <h3 style="text-align: -webkit-center; margin: 0px;">{{myLevel}}</h3>
+                    </div>
+                </div>
+                <div class="stats">
+                    <p>
+                        <br> Quick Play Wins: {{myQPWins}}
+                        <br> Competitive Wins: {{myCompWins}}
+                        <br> Quick Play Playtime: {{myQPPlaytime}}
+                        <br> Competitive Playtime: {{myCompPlaytime}}
+                        <br> Quick Play Win Rate: {{myQPWinRate}}
+                        <br> Competitive Win Rate: {{myCompWinRate}}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <h1>Comparison</h1>
+                <p>
+                    Level: {{levelDif}}
+                    <br> Rank: {{rankDif}}
+                    <br> Quick Play Wins: {{qpWinsDif}}
+                    <br> Competitive Wins: {{compWinsDif}}
+                    <br> Quick Play Win Rate: {{qpWinRateDif}}
+                    <br> Competitive Win Rate: {{compWinRateDif}}
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h1>Player Two Stats</h1>
+                <div>
+                    <img ng-src="{{oppAvatar}}" class="img-rounded"></img>
+                    <p>
+                        Username: {{oppUsername}}
+                        <br> Level: {{oppLevel}}
+                        <br> Rank: {{oppRank}}
+                        <br> Quick Play Wins: {{oppQPWins}}
+                        <br> Competitive Wins: {{oppCompWins}}
+                        <br> Quick Play Playtime: {{oppQPPlaytime}}
+                        <br> Competitive Playtime: {{oppCompPlaytime}}
+                        <br> Quick Play Win Rate: {{oppQPWinRate}}
+                        <br> Competitive Win Rate: {{oppCompWinRate}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<fhfooter></fhfooter>
