@@ -17,6 +17,7 @@
                         <option value="us">US</option>
                         <option value="kr">KR</option>
                         <option value="cn">CN</option>
+                        <option value="global">GLOBAL</option>
                     </select>
                 </div>
                 <div>
@@ -41,6 +42,7 @@
                         <option value="us">US</option>
                         <option value="kr">KR</option>
                         <option value="cn">CN</option>
+                        <option value="global">GLOBAL</option>
                     </select>
                 </div>
                 <div>
@@ -51,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" ng-hide="comparison">
+        <div class="row" ng-hide="">
             <div class="col-lg-4">
                 <h1>Player One Stats</h1>
                 <div class="row profile">
@@ -66,8 +68,8 @@
                         <h3 style="text-align: -webkit-center; margin: 0px;">{{myRank}}</h3>
                     </div>
                     <div class="col-sm-3">
-                        <img ng-src="{{myLevelFrame}}" class="img-responsive"></img>
-                        <h3 style="text-align: -webkit-center; margin: 0px;">{{myLevel}}</h3>
+                        <img ng-src="{{myLevelFrame}}" class="img-responsive" style="height: 85px; width: 85px;"></img>
+                        <h3 style="text-align: -webkit-center; margin-top: -48px;">{{myLevel}}</h3>
                     </div>
                 </div>
                 <div class="stats">
