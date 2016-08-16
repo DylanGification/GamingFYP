@@ -2,12 +2,14 @@ body {
     /*    width: 640px;
     height: 1136px;*/
     font-family: OS-Light;
-    background-color: #fefbcd;
+    background-color: #EEEEEE;
 }
+
 #app {
     width: inherit;
     height: inherit;
 }
+
 #example {
     width: 80%;
     height: 470px;
@@ -16,22 +18,17 @@ body {
     left: 10%;
 }
 
-.ranking {
-    height: 50px;
-    width: 50px;  
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-.playerIcon {
-    height: 75px;
-    width: 75px;
-}
-
 .profile {
-    padding: 2px;
-    background-color: teal;
+    padding: 5px;
+    background-color: #f2f2f2;
     border-radius: 6px;
+    height: 150px;
+}
+
+.userName {
+    font-size: 4rem;
+    margin-left: -15px;
+    font-style: italic;
 }
 
 .stats {
@@ -39,54 +36,74 @@ body {
     position: relative;
 }
 
+.table td {
+    text-align: center;
+}
+
+.verticalLine {
+    border-left: thick solid #ff0000;
+}
+
 header {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
 }
+
 .center > h3 {
     color: #ffffff;
     letter-spacing: 2px;
     font-family: OS-Light;
     font-size: 1.5em;
 }
+
 .center > h3 > small {
     color: #ffffff;
     letter-spacing: 2px;
     font-family: OS-Light;
 }
+
 .header-footer-bg {
     background-color: #7ea1b6;
 }
+
 footer {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 5%;
     color: #ffffff;
 }
+
 footer > div > small {
     padding-top: 8px;
     padding-right: 10px;
 }
+
 .left {
     float: left;
 }
+
 .right {
     float: right;
 }
+
 .clear {
     clear: both;
 }
+
 .center {
     text-align: center;
 }
-.hello-result{
+
+.hello-result {
     margin: 20px 0px 0px 0px;
     font-size: 2em;
 }
+
+
 /*
  *  CUSTOM STYLING
  */
@@ -97,6 +114,7 @@ footer > div > small {
     padding-top: 20%;
     padding-bottom: 10%;
 }
+
 .input-group {
     display: block;
     width: 100%;

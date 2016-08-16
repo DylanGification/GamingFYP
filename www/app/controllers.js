@@ -63,6 +63,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         $scope.myCompWins = myDetails.data.games.competitive.wins;
         $scope.myQPPlaytime = myDetails.data.playtime.quick;
         $scope.myCompPlaytime = myDetails.data.playtime.competitive;
+        $scope.myStar = myDetails.data.star;
         //Sets x = wins/games played and sets myQWPR to the value of x to two decimal places
         //Multiplies myQPWR by 100 and slaps a percentage on the end
         var x = myDetails.data.games.quick.wins / myDetails.data.games.quick.played;
@@ -89,6 +90,9 @@ myApp.controller('MainCtrl', function($scope, $http) {
         $scope.oppCompWins = oppDetails.data.games.competitive.wins;
         $scope.oppQPPlaytime = oppDetails.data.playtime.quick;
         $scope.oppCompPlaytime = oppDetails.data.playtime.competitive;
+        $scope.oppLevelFrame = oppDetails.data.levelFrame;
+        $scope.oppStar = oppDetails.data.star;
+        $scope.oppRankIcon = oppDetails.data.competitive.rank_img;
         var q = oppDetails.data.games.quick.wins / oppDetails.data.games.quick.played;
         var oppQPWR = (q * 100);
         $scope.oppQPWinRate = oppQPWR.toFixed(2) + "%";
