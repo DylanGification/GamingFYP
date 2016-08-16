@@ -18,7 +18,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         var myPlatform = $scope.data.platformSelect;
         var myRegion = $scope.data.regionSelect;
 
-        // Simple GET request example:
+        
         $http({
             method: 'GET',
             url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/profile"
@@ -26,10 +26,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
             myDetails = response.data;
             console.log(myDetails);
             getMyDetails(myDetails);
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
+        }, function errorCallback(response) {});
     }
 
     $scope.getOppData = function() {
@@ -38,7 +35,6 @@ myApp.controller('MainCtrl', function($scope, $http) {
         var oppPlatform = $scope.data.oppPlatformSelect;
         var oppRegion = $scope.data.oppRegionSelect;
 
-        // Simple GET request example:
         $http({
             method: 'GET',
             url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/profile"
@@ -46,10 +42,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
             oppDetails = response.data;
             console.log(oppDetails);
             getOppDetails(oppDetails);
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-        });
+        }, function errorCallback(response) {});
     }
 
     function getMyDetails(myDetails) {
@@ -64,8 +57,6 @@ myApp.controller('MainCtrl', function($scope, $http) {
         $scope.myQPPlaytime = myDetails.data.playtime.quick;
         $scope.myCompPlaytime = myDetails.data.playtime.competitive;
         $scope.myStar = myDetails.data.star;
-        //Sets x = wins/games played and sets myQWPR to the value of x to two decimal places
-        //Multiplies myQPWR by 100 and slaps a percentage on the end
         var x = myDetails.data.games.quick.wins / myDetails.data.games.quick.played;
         var myQPWR = (x * 100);
         $scope.myQPWinRate = myQPWR.toFixed(2) + "%";
