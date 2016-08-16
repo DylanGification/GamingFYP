@@ -66,18 +66,19 @@
                         <div class="col-sm-3">
                             <h2 class="userName">{{myUsername}}</h2>
                         </div>
-                        <div class="col-sm-3 ">
-                            <img ng-src="{{myRankIcon}}" class="img-rounded img-responsive" style="margin-top: -20px;">
-                        </div>
                         <div class="col-sm-3">
-                            <img ng-src="{{myLevelFrame}}" class="img-responsive">
-                            <h3 style="text-align: -webkit-center; position: relative; top: -95px;">{{myLevel}}</h3>
+                            <div class="competitive-rank">
+                                <img ng-src="{{myRankIcon}}">
+                                <div class="u-align-center h6">{{myRank}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 player-level" style="background-image: url({{myLevelFrame}})">
+                            <div class="u-vertical-center">{{myLevel}}</div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6"></div>
                         <div class="col-sm-3">
-                            <h3 style="text-align: -webkit-center; margin-top: -85px;">{{myRank}}</h3>
                         </div>
                         <div class="col-sm-3">
                             <img ng-src="{{myStar}}" class="img-responsive" style="position: relative; bottom: 110px;">
@@ -95,18 +96,19 @@
                         <div class="col-sm-3">
                             <h2 class="userName">{{oppUsername}}</h2>
                         </div>
-                        <div class="col-sm-3 ">
-                            <img ng-src="{{oppRankIcon}}" class="img-rounded img-responsive" style="margin-top: -20px;">
-                        </div>
                         <div class="col-sm-3">
-                            <img ng-src="{{oppLevelFrame}}" class="img-responsive">
-                            <h3 style="text-align: -webkit-center; position: relative; top: -95px;">{{oppLevel}}</h3>
+                            <div class="competitive-rank">
+                                <img ng-src="{{oppRankIcon}}">
+                                <div class="u-align-center h6">{{oppRank}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 player-level" style="background-image: url({{oppLevelFrame}})">
+                            <div class="u-vertical-center">{{oppLevel}}</div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6"></div>
                         <div class="col-sm-3">
-                            <h3 style="text-align: -webkit-center; margin-top: -85px;">{{oppRank}}</h3>
                         </div>
                         <div class="col-sm-3">
                             <img ng-src="{{oppStar}}" class="img-responsive" style="position: relative; bottom: 110px;">

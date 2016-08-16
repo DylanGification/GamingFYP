@@ -44,6 +44,56 @@ body {
     border-left: thick solid #ff0000;
 }
 
+.player-level {
+    vertical-align: middle;
+}
+
+.player-level {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-size: auto 100%;
+    font-family: Futura, century gothic, arial, sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+
+.competitive-rank {
+    vertical-align: middle;
+}
+
+.competitive-rank {
+    display: inline-block;
+    border-left: 1px solid rgba(240,237,242,.2);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.competitive-rank img {
+    width: 80px;
+}
+
+.u-vertical-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.u-align-center {
+    text-align: center;
+}
+
+.h6 {
+    font: normal normal normal 10px Futura,century gothic,arial,sans-serif;
+    font-size: 1.5rem;
+    line-height: normal;
+    letter-spacing: .5px;
+}
+
 header {
     position: absolute;
     top: 0;
