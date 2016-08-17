@@ -5,12 +5,32 @@ var myApp = angular.module('myApp.controllers', ['fhcloud']);
 myApp.controller('MainCtrl', function($scope, $http) {
 
     $scope.data = { platformSelect: "pc", regionSelect: "eu", oppPlatformSelect: "pc", oppRegionSelect: "eu" };
+
+    //My details
     var myDetails = [];
+    var allMyHeroesQP = [];
+    var allMyHeroesComp = [];
+    var myHeroQP = [];
+    var myHeroComp = [];
+    var myPlayedHeroesQP = [];
+    var myPlayedHeroesComp = [];
+
+    //Opponent details
     var oppDetails = [];
+    var allOppHeroesQP = [];
+    var allOppHeroesComp = [];
+    var oppHeroQP = [];
+    var oppHeroComp = [];
+    var oppPlayedHeroesQP = [];
+    var oppPlayedHeroesComp = [];
+
     var myCall = false;
     var oppCall = false;
     var comparison = false;
     $scope.comparison = comparison;
+
+    //---------------------------------------------------------------------------------------------------------------------------
+    //MY DETAILS
 
     $scope.getMyData = function() {
         var myUserInput = $scope.myUserInput;
@@ -18,31 +38,68 @@ myApp.controller('MainCtrl', function($scope, $http) {
         var myPlatform = $scope.data.platformSelect;
         var myRegion = $scope.data.regionSelect;
 
-        
+        //get basic profile data
         $http({
             method: 'GET',
             url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/profile"
         }).then(function successCallback(response) {
             myDetails = response.data;
-            console.log(myDetails);
             getMyDetails(myDetails);
-        }, function errorCallback(response) {});
-    }
+        }, function errorCallback(response) { alert(response.error); });
 
-    $scope.getOppData = function() {
-        var oppUserInput = $scope.oppUserInput;
-        var oppUserName = oppUserInput.replace("#", "-");
-        var oppPlatform = $scope.data.oppPlatformSelect;
-        var oppRegion = $scope.data.oppRegionSelect;
-
+        //get all heroes data from quick play
         $http({
             method: 'GET',
-            url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/profile"
+            url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/quick-play/allHeroes/"
         }).then(function successCallback(response) {
-            oppDetails = response.data;
-            console.log(oppDetails);
-            getOppDetails(oppDetails);
-        }, function errorCallback(response) {});
+            allMyHeroesQP = response.data;
+            getAllMyHeroesQP(allMyHeroesQP);
+        }, function errorCallback(response) { alert(response); });
+
+        //get all heroes data from competitive play
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/competitive-play/allHeroes/"
+        }).then(function successCallback(response) {
+            allMyHeroesComp = response.data;
+            getAllMyHeroesComp(allMyHeroesComp);
+        }, function errorCallback(response) { alert(response); });
+
+        //get a singular hero's data from quick play
+        // $http({
+        //     method: 'GET',
+        //     url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/quick-play/" + hero
+        // }).then(function successCallback(response) {
+        //     myHeroQP = response.data;
+        //     getMyHeroQP(myHeroQP);
+        // }, function errorCallback(response) { alert(response); });
+
+        //get a singular hero's data from competitive play
+        // $http({
+        //     method: 'GET',
+        //     url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/competitive-play/" + hero
+        // }).then(function successCallback(response) {
+        //     myHeroComp = response.data;
+        //     getMyHeroComp(myHeroComp);
+        // }, function errorCallback(response) { alert(response); });
+
+        //get list of most played heroes in quick play
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/quick-play/heroes"
+        }).then(function successCallback(response) {
+            myPlayedHeroesQP = response.data;
+            getMyPlayedHeroesQP(myPlayedHeroesQP);
+        }, function errorCallback(response) { alert(response); });
+
+        //get list of most played heroes in competitive play
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + myPlatform + "/" + myRegion + "/" + myUserName + "/competitive-play/heroes"
+        }).then(function successCallback(response) {
+            myPlayedHeroesComp = response.data;
+            getMyPlayedHeroesComp(myPlayedHeroesComp);
+        }, function errorCallback(response) { alert(response); });
     }
 
     function getMyDetails(myDetails) {
@@ -72,6 +129,106 @@ myApp.controller('MainCtrl', function($scope, $http) {
         $scope.myUserInput = '';
     }
 
+    function getAllMyHeroesQP(allMyHeroesQP) {
+
+    }
+
+    function getAllMyHeroesComp(allMyHeroesComp) {
+
+    }
+
+    function getMyHeroQP(myHeroQP) {
+
+    }
+
+    function getMyHeroComp(myHeroComp) {
+
+    }
+
+    function getMyPlayedHeroesQP(myPlayedHeroesQP) {
+        for (var i = 0; i < myPlayedHeroesQP.length; i++) {
+            var myMostPlayedQP = myPlayedHeroesQP[0];
+            $scope.myMostPlayedQP = myMostPlayedQP.image;
+        }
+    }
+
+    function getMyPlayedHeroesComp(myPlayedHeroesComp) {
+
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------------
+    //OPPONENT DETAILS
+
+    $scope.getOppData = function() {
+        var oppUserInput = $scope.oppUserInput;
+        var oppUserName = oppUserInput.replace("#", "-");
+        var oppPlatform = $scope.data.oppPlatformSelect;
+        var oppRegion = $scope.data.oppRegionSelect;
+
+        //get basic profile data
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/profile"
+        }).then(function successCallback(response) {
+            oppDetails = response.data;
+            getOppDetails(oppDetails);
+        }, function errorCallback(response) { alert(response.error); });
+
+        //get all heroes data from quick play
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/quick-play/allHeroes/"
+        }).then(function successCallback(response) {
+            allOppHeroesQP = response.data;
+            getAllOppHeroesQP(allOppHeroesQP);
+        }, function errorCallback(response) { alert(response); });
+
+        //get all heroes data from competitive play
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/competitive-play/allHeroes/"
+        }).then(function successCallback(response) {
+            allOppHeroesComp = response.data;
+            getAllOppHeroesComp(allOppHeroesComp);
+        }, function errorCallback(response) { alert(response); });
+
+        //get a singular hero's data from quick play
+        // $http({
+        //     method: 'GET',
+        //     url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/quick-play/" + hero
+        // }).then(function successCallback(response) {
+        //     oppHeroQP = response.data;
+        //     getOppHeroQP(oppHeroQP);
+        // }, function errorCallback(response) { alert(response); });
+
+        //get a singular hero's data from competitive play
+        // $http({
+        //     method: 'GET',
+        //     url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/competitive-play/" + hero
+        // }).then(function successCallback(response) {
+        //     oppHeroComp = response.data;
+        //     getOppHeroComp(oppHeroComp);
+        // }, function errorCallback(response) { alert(response); });
+
+        //get list of most played heroes in quick play
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/quick-play/heroes"
+        }).then(function successCallback(response) {
+            oppPlayedHeroesQP = response.data;
+            getOppPlayedHeroesQP(oppPlayedHeroesQP);
+        }, function errorCallback(response) { alert(response); });
+
+        //get list of most played heroes in competitive play
+        $http({
+            method: 'GET',
+            url: "https://api.lootbox.eu/" + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/competitive-play/heroes"
+        }).then(function successCallback(response) {
+            oppPlayedHeroesComp = response.data;
+            getOppPlayedHeroesComp(oppPlayedHeroesComp);
+        }, function errorCallback(response) { alert(response); });
+    }
+
     function getOppDetails(oppDetails) {
         $scope.oppAvatar = oppDetails.data.avatar;
         $scope.oppUsername = oppDetails.data.username;
@@ -97,6 +254,36 @@ myApp.controller('MainCtrl', function($scope, $http) {
         }
         $scope.oppUserInput = '';
     }
+
+    function getAllOppHeroesQP(allOppHeroesQP) {
+
+    }
+
+    function getAllOppHeroesComp(allOppHeroesComp) {
+
+    }
+
+    function getOppHeroQP(oppHeroQP) {
+
+    }
+
+    function getOppHeroComp(oppHeroComp) {
+
+    }
+
+    function getOppPlayedHeroesQP(oppPlayedHeroesQP) {
+        for (var i = 0; i < oppPlayedHeroesQP.length; i++) {
+            var oppMostPlayedQP = oppPlayedHeroesQP[0];
+            $scope.oppMostPlayedQP = oppMostPlayedQP.image;
+        }
+    }
+
+    function getOppPlayedHeroesComp(oppPlayedHeroesComp) {
+
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    //COMPARISON INFORMATION
 
     function compareDetails() {
         $scope.levelDif = parseInt($scope.myLevel) - parseInt($scope.oppLevel);

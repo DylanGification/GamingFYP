@@ -53,12 +53,11 @@
                 </div>
             </div>
         </div>
-        <hr>
         <div class="row" ng-hide="">
             <hr>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <h1>{{myUsername}}'s Stats</h1>
-                <div class="row profile well">
+                <div class="row profile well heroBackground" style="background-image: url({{myMostPlayedQP}});">
                     <div class="row">
                         <div class="col-sm-3">
                             <img ng-src="{{myAvatar}}" class="img-responsive img-rounded" style="position: relative; top: 8px;">
@@ -66,29 +65,26 @@
                         <div class="col-sm-3">
                             <h2 class="userName">{{myUsername}}</h2>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <div class="competitive-rank">
                                 <img ng-src="{{myRankIcon}}">
                                 <div class="u-align-center h6">{{myRank}}</div>
                             </div>
                         </div>
-                        <div class="col-sm-3 player-level" style="background-image: url({{myLevelFrame}})">
+                        <div class="col-sm-4 player-level" style="background-image: url({{myLevelFrame}});">
                             <div class="u-vertical-center">{{myLevel}}</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"></div>
-                        <div class="col-sm-3">
-                        </div>
-                        <div class="col-sm-3">
-                            <img ng-src="{{myStar}}" class="img-responsive" style="position: relative; bottom: 110px;">
+                            <div class="level-star">
+                                <img ng-src="{{myStar}}" class="level-star-img" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-5">
                 <h1>{{oppUsername}}'s Stats</h1>
-                <div class="row profile well">
+                <div class="row profile well heroBackground" style="background-image: url({{oppMostPlayedQP}});">
                     <div class="row">
                         <div class="col-sm-3">
                             <img ng-src="{{oppAvatar}}" class="img-responsive img-rounded" style="position: relative; top: 8px;">
@@ -96,22 +92,17 @@
                         <div class="col-sm-3">
                             <h2 class="userName">{{oppUsername}}</h2>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <div class="competitive-rank">
                                 <img ng-src="{{oppRankIcon}}">
                                 <div class="u-align-center h6">{{oppRank}}</div>
                             </div>
                         </div>
-                        <div class="col-sm-3 player-level" style="background-image: url({{oppLevelFrame}})">
+                        <div class="col-sm-4 player-level" style="background-image: url({{oppLevelFrame}});">
                             <div class="u-vertical-center">{{oppLevel}}</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"></div>
-                        <div class="col-sm-3">
-                        </div>
-                        <div class="col-sm-3">
-                            <img ng-src="{{oppStar}}" class="img-responsive" style="position: relative; bottom: 110px;">
+                            <div class="level-star">
+                                <img ng-src="{{oppStar}}" class="level-star-img" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
