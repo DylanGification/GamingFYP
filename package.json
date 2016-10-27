@@ -1,7 +1,7 @@
 {
-  "name": "quickstart-angular-app",
+  "name": "phleepgg",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "dependencies": {
     "angular-material": "^1.1.0-rc.5"
   },
@@ -16,8 +16,23 @@
     "grunt": "^0.4.4"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": "6.6.0"
   },
   "scripts": {},
-  "license": "mit"
+  "license": "MIT",
+  "description": "==================================================================================================================",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DylanGification/GamingFYP.git"
+  },
+  "keywords": [
+    "phleep",
+    "gg"
+  ],
+  "author": "Dylan Grace",
+  "bugs": {
+    "url": "https://github.com/DylanGification/GamingFYP/issues"
+  },
+  "homepage": "https://github.com/DylanGification/GamingFYP#readme"
 }
