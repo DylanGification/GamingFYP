@@ -56,21 +56,23 @@ myApp.controller('MainCtrl', function($scope, $http) {
         }).then(function successCallback(response) {
             myDetails = response.data;
             getMyDetails(myDetails);
+            console.log(myDetails);
         }, function errorCallback(response) { alert(response.error); });
 
         //get all heroes data from quick play
         $http({
             method: 'GET',
-            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/quick-play/allHeroes/"
+            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/quickplay/allHeroes/"
         }).then(function successCallback(response) {
             allMyHeroesQP = response.data;
             getAllMyHeroesQP(allMyHeroesQP);
+            console.log(allMyHeroesQP);
         }, function errorCallback(response) { alert(response); });
 
         //get all heroes data from competitive play
         $http({
             method: 'GET',
-            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/competitive-play/allHeroes/"
+            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/competitiveplay/allHeroes/"
         }).then(function successCallback(response) {
             allMyHeroesComp = response.data;
             getAllMyHeroesComp(allMyHeroesComp);
@@ -97,7 +99,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         //get list of most played heroes in quick play
         $http({
             method: 'GET',
-            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/quick-play/heroes"
+            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/quickplay/heroes"
         }).then(function successCallback(response) {
             myPlayedHeroesQP = response.data;
             getMyPlayedHeroesQP(myPlayedHeroesQP);
@@ -106,7 +108,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         //get list of most played heroes in competitive play
         $http({
             method: 'GET',
-            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/competitive-play/heroes"
+            url: apiURL + myPlatform + "/" + myRegion + "/" + myUserName + "/competitiveplay/heroes"
         }).then(function successCallback(response) {
             myPlayedHeroesComp = response.data;
             getMyPlayedHeroesComp(myPlayedHeroesComp);
@@ -134,9 +136,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         $scope.myQPPlaytime = myDetails.data.playtime.quick;
         $scope.myCompPlaytime = myDetails.data.playtime.competitive;
         $scope.myStar = myDetails.data.star;
-        var x = myDetails.data.games.quick.wins / myDetails.data.games.quick.played;
-        var myQPWR = (x * 100);
-        $scope.myQPWinRate = myQPWR.toFixed(2) + "%";
+        
         //-------------------------------------------------------
         var y = myDetails.data.games.competitive.wins / myDetails.data.games.competitive.played;
         var myCWR = (y * 100);
@@ -305,7 +305,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         //get all heroes data from quick play
         $http({
             method: 'GET',
-            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/quick-play/allHeroes/"
+            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/quickplay/allHeroes/"
         }).then(function successCallback(response) {
             allOppHeroesQP = response.data;
             getAllOppHeroesQP(allOppHeroesQP);
@@ -314,7 +314,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         //get all heroes data from competitive play
         $http({
             method: 'GET',
-            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/competitive-play/allHeroes/"
+            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/competitive/allHeroes/"
         }).then(function successCallback(response) {
             allOppHeroesComp = response.data;
             getAllOppHeroesComp(allOppHeroesComp);
@@ -341,7 +341,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         //get list of most played heroes in quick play
         $http({
             method: 'GET',
-            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/quick-play/heroes"
+            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/quickplay/heroes"
         }).then(function successCallback(response) {
             oppPlayedHeroesQP = response.data;
             getOppPlayedHeroesQP(oppPlayedHeroesQP);
@@ -350,7 +350,7 @@ myApp.controller('MainCtrl', function($scope, $http) {
         //get list of most played heroes in competitive play
         $http({
             method: 'GET',
-            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/competitive-play/heroes"
+            url: apiURL + oppPlatform + "/" + oppRegion + "/" + oppUserName + "/competitive/heroes"
         }).then(function successCallback(response) {
             oppPlayedHeroesComp = response.data;
             getOppPlayedHeroesComp(oppPlayedHeroesComp);
